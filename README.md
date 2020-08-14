@@ -1,10 +1,10 @@
-# Boilerplate Project
+# Şu Anda Uzayda Kaç Kişi Var? Project
 
-A boilerplate project created in flutter using MobX and Provider.
+A Şu Anda Uzayda Kaç Kişi Var? project created in flutter using MobX and Provider.
 
 ## Getting Started
 
-The Boilerplate contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
+The Şu Anda Uzayda Kaç Kişi Var? contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
 
 ## How to Use 
 
@@ -53,7 +53,7 @@ In Visual Studio Code, navigate to `Preferences` -> `Settings` and search for `F
 **/*.g.dart
 ```
 
-## Boilerplate Features:
+## Şu Anda Uzayda Kaç Kişi Var? Features:
 
 * Splash
 * Login
@@ -287,7 +287,7 @@ Checkout [wiki](https://github.com/zubairehman/flutter-boilerplate-project/wiki)
 
 ## Conclusion
 
-I will be happy to answer any questions that you may have on this approach, and if you want to lend a hand with the boilerplate then please feel free to submit an issue and/or pull request 🙂
+I will be happy to answer any questions that you may have on this approach, and if you want to lend a hand with the Şu Anda Uzayda Kaç Kişi Var? then please feel free to submit an issue and/or pull request 🙂
 
 Again to note, this is example can appear as over-architectured for what it is - but it is an example only. If you liked my work, don’t forget to ⭐ star the repo to show your support.
 

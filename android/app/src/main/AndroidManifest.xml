@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.iotecksolutions.todoapp">
+    package="com.wmstudio.saukkv">
 
     <!-- The INTERNET permission is required for development. Specifically,
          flutter needs it to communicate with the running application
@@ -14,7 +14,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Boilerplate Project"
+        android:label="Şu Anda Uzayda Kaç Kişi Var?"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

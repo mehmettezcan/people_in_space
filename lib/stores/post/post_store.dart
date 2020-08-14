@@ -1,4 +1,5 @@
 import 'package:boilerplate/data/repository.dart';
+import 'package:boilerplate/models/post/post.dart';
 import 'package:boilerplate/models/post/post_list.dart';
 import 'package:boilerplate/stores/error/error_store.dart';
 import 'package:boilerplate/utils/dio/dio_error_util.dart';
@@ -30,12 +31,21 @@ abstract class _PostStore with Store {
   AstronautList astronautList;
 
   @observable
+  Astronaut currentAstronaut;
+
+  @observable
   bool success = false;
 
   @computed
   bool get loading => fetchPostsFuture.status == FutureStatus.pending;
 
   // actions:-------------------------------------------------------------------
+
+  @action
+  void setCurrentAstronaut(Astronaut astronaut){
+    this.currentAstronaut = astronaut;
+  }
+
   @action
   Future getPosts() async {
     final future = _repository.getPosts();

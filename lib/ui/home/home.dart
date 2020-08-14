@@ -158,8 +158,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildListItem(int position) {
     return GestureDetector(
-      onTap: (){
-        print('dfsfdfd');
+      onTap: () async {
+        _postStore.setCurrentAstronaut(_postStore.astronautList.astronauts[position]);
+        Navigator.of(context).pushNamed(Routes.details);
       },
       child: ListTile(
         dense: true,

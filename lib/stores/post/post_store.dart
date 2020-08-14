@@ -19,15 +19,15 @@ abstract class _PostStore with Store {
   _PostStore(Repository repository) : this._repository = repository;
 
   // store variables:-----------------------------------------------------------
-  static ObservableFuture<PostList> emptyPostResponse =
+  static ObservableFuture<AstronautList> emptyPostResponse =
       ObservableFuture.value(null);
 
   @observable
-  ObservableFuture<PostList> fetchPostsFuture =
-      ObservableFuture<PostList>(emptyPostResponse);
+  ObservableFuture<AstronautList> fetchPostsFuture =
+      ObservableFuture<AstronautList>(emptyPostResponse);
 
   @observable
-  PostList postList;
+  AstronautList astronautList;
 
   @observable
   bool success = false;
@@ -42,7 +42,7 @@ abstract class _PostStore with Store {
     fetchPostsFuture = ObservableFuture(future);
 
     future.then((postList) {
-      this.postList = postList;
+      this.astronautList = postList;
     }).catchError((error) {
       errorStore.errorMessage = DioErrorUtil.handleError(error);
     });

@@ -1,28 +1,64 @@
-class Post {
-  int userId;
-  int id;
+class Astronaut {
+  String name;
+  String biophoto;
+  int biophotowidth;
+  int biophotoheight;
+  String country;
+  String countryflag;
+  String launchdate;
+  int careerdays;
   String title;
-  String body;
+  String location;
+  String bio;
+  String biolink;
+  String twitter;
 
-  Post({
-    this.userId,
-    this.id,
-    this.title,
-    this.body,
-  });
+  Astronaut(
+      {this.name,
+        this.biophoto,
+        this.biophotowidth,
+        this.biophotoheight,
+        this.country,
+        this.countryflag,
+        this.launchdate,
+        this.careerdays,
+        this.title,
+        this.location,
+        this.bio,
+        this.biolink,
+        this.twitter});
 
-  factory Post.fromMap(Map<String, dynamic> json) => Post(
-        userId: json["userId"],
-        id: json["id"],
-        title: json["title"],
-        body: json["body"],
-      );
+  Astronaut.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    biophoto = json['biophoto'];
+    biophotowidth = json['biophotowidth'];
+    biophotoheight = json['biophotoheight'];
+    country = json['country'];
+    countryflag = json['countryflag'];
+    launchdate = json['launchdate'];
+    careerdays = json['careerdays'];
+    title = json['title'];
+    location = json['location'];
+    bio = json['bio'];
+    biolink = json['biolink'];
+    twitter = json['twitter'];
+  }
 
-  Map<String, dynamic> toMap() => {
-        "userId": userId,
-        "id": id,
-        "title": title,
-        "body": body,
-      };
-  
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    data['biophoto'] = this.biophoto;
+    data['biophotowidth'] = this.biophotowidth;
+    data['biophotoheight'] = this.biophotoheight;
+    data['country'] = this.country;
+    data['countryflag'] = this.countryflag;
+    data['launchdate'] = this.launchdate;
+    data['careerdays'] = this.careerdays;
+    data['title'] = this.title;
+    data['location'] = this.location;
+    data['bio'] = this.bio;
+    data['biolink'] = this.biolink;
+    data['twitter'] = this.twitter;
+    return data;
+  }
 }

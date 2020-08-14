@@ -1,18 +1,27 @@
-import 'package:boilerplate/models/post/post.dart';
+import 'post.dart';
 
-class PostList {
-  final List<Post> posts;
+class AstronautList {
+  int number;
+  List<Astronaut> astronauts;
 
-  PostList({
-    this.posts,
-  });
+  AstronautList({this.number, this.astronauts});
 
-  factory PostList.fromJson(List<dynamic> json) {
-    List<Post> posts = List<Post>();
-    posts = json.map((post) => Post.fromMap(post)).toList();
+  AstronautList.fromJson(Map<String, dynamic> json) {
+    number = json['number'];
+    if (json['people'] != null) {
+      astronauts = new List<Astronaut>();
+      json['people'].forEach((v) {
+        astronauts.add(new Astronaut.fromJson(v));
+      });
+    }
+  }
 
-    return PostList(
-      posts: posts,
-    );
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['number'] = this.number;
+    if (this.astronauts != null) {
+      data['people'] = this.astronauts.map((v) => v.toJson()).toList();
+    }
+    return data;
   }
 }

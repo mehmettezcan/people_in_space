@@ -45,17 +45,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: _buildBody(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        body: _buildBody(),
+      ),
     );
   }
 
   // app bar methods:-----------------------------------------------------------
   Widget _buildAppBar() {
     return AppBar(
-      title: Text(AppLocalizations.of(context).translate('home_tv_posts')),
-      actions: _buildActions(context),
+      backgroundColor: Colors.black,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back, color: Colors.white),
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+      title: Text('Astronotlar',style: TextStyle(
+        color: Colors.white
+      ),),
     );
   }
 
@@ -128,16 +136,19 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildListView() {
-    return _postStore.postList != null
-        ? ListView.separated(
-            itemCount: _postStore.postList.posts.length,
-            separatorBuilder: (context, position) {
-              return Divider();
-            },
-            itemBuilder: (context, position) {
-              return _buildListItem(position);
-            },
-          )
+    return _postStore.astronautList != null
+        ? Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView.separated(
+              itemCount: _postStore.astronautList.astronauts.length,
+              separatorBuilder: (context, position) {
+                return Divider();
+              },
+              itemBuilder: (context, position) {
+                return _buildListItem(position);
+              },
+            ),
+        )
         : Center(
             child: Text(
               AppLocalizations.of(context).translate('home_tv_no_post_found'),
@@ -146,21 +157,26 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildListItem(int position) {
-    return ListTile(
-      dense: true,
-      leading: Icon(Icons.cloud_circle),
-      title: Text(
-        '${_postStore.postList.posts[position].title}',
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        softWrap: false,
-        style: Theme.of(context).textTheme.title,
-      ),
-      subtitle: Text(
-        '${_postStore.postList.posts[position].body}',
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        softWrap: false,
+    return GestureDetector(
+      onTap: (){
+        print('dfsfdfd');
+      },
+      child: ListTile(
+        dense: true,
+        leading: Image.network(_postStore.astronautList.astronauts[position].biophoto),
+        title: Text(
+          '${_postStore.astronautList.astronauts[position].name}',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+          style: Theme.of(context).textTheme.title,
+        ),
+        subtitle: Text(
+          '${_postStore.astronautList.astronauts[position].title}',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+        ),
       ),
     );
   }

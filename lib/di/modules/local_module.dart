@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:boilerplate/data/local/constants/db_constants.dart';
-import 'package:boilerplate/data/local/datasources/post/post_datasource.dart';
 import 'package:boilerplate/data/network/apis/posts/post_api.dart';
 import 'package:boilerplate/data/repository.dart';
 import 'package:boilerplate/data/sharedpref/shared_preference_helper.dart';
@@ -58,14 +57,6 @@ class LocalModule extends NetworkModule {
     return database;
   }
 
-  // DataSources:---------------------------------------------------------------
-  // Define all your data sources here
-  /// A singleton post dataSource provider.
-  ///
-  /// Calling it multiple times will return the same instance.
-  @provide
-  @singleton
-  PostDataSource providePostDataSource() => PostDataSource(database);
 
   // DataSources End:-----------------------------------------------------------
 
@@ -76,8 +67,7 @@ class LocalModule extends NetworkModule {
   @singleton
   Repository provideRepository(
     PostApi postApi,
-    SharedPreferenceHelper preferenceHelper,
-    PostDataSource postDataSource,
+    SharedPreferenceHelper preferenceHelper
   ) =>
-      Repository(postApi, preferenceHelper, postDataSource);
+      Repository(postApi, preferenceHelper);
 }

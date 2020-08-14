@@ -33,12 +33,13 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   navigate() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
+    Navigator.of(context).pushNamed(Routes.mainHome);
+    /*SharedPreferences preferences = await SharedPreferences.getInstance();
 
     if (preferences.getBool(Preferences.is_logged_in) ?? false) {
       Navigator.of(context).pushNamed(Routes.home);
     } else {
       Navigator.of(context).pushNamed(Routes.login);
-    }
+    }*/
   }
 }
